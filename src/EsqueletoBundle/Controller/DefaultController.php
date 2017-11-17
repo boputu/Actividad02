@@ -12,7 +12,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('EsqueletoBundle:Default:index.html.twig');
+        $repository = $this->getDoctrine()->getRepository('EsqueletoBundle:Eventos');
+        $clash = $repository->findAll();
+          return $this->render('EsqueletoBundle:Default:index.html.twig',array("royale"=>$clash));
     }
 
     /**
